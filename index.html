@@ -38,6 +38,17 @@
   @keyframes blink{50%{opacity:0}}
   .tag{color:var(--dim)}
 
+  /* ---- play banner ---- */
+  .play{display:flex;align-items:center;gap:1rem;margin-top:1.5rem;
+        background:var(--panel);border:1px solid var(--line);
+        border-left:3px solid var(--green);border-radius:8px;
+        padding:1rem 1.2rem;text-decoration:none;color:inherit;transition:.2s}
+  .play:hover{border-color:var(--green);transform:translateX(4px)}
+  .play .ico{font-size:2rem}
+  .play h3{color:#fff;font-size:1rem}
+  .play p{color:var(--dim);font-size:.85rem}
+  .play .go{margin-left:auto;color:var(--green)}
+
   /* ---- content ---- */
   h2{margin:2rem 0 .8rem;font-size:1.1rem;color:var(--blue)}
   h2::before{content:"// ";color:var(--dim)}
@@ -68,7 +79,7 @@
   <div class="term">
     <div class="bar">
       <i class="dot r"></i><i class="dot y"></i><i class="dot g"></i>
-      <span>~/username.github.io — zsh</span>
+      <span>~/demo — zsh</span>
     </div>
     <div class="body">
       <p class="prompt">whoami</p>
@@ -79,36 +90,50 @@
     </div>
   </div>
 
+  <!-- Game lives at:  demo/asteroids/index.html  -->
+  <a class="play" href="asteroids/">
+    <span class="ico">🕹️</span>
+    <span>
+      <h3>Play Asteroids</h3>
+      <p>Canvas game, no install. Arrow keys to fly, space to shoot.</p>
+    </span>
+    <span class="go">▶</span>
+  </a>
+
   <h2>What's on this machine</h2>
   <div class="grid">
     <div class="card"><div class="ico">💻</div><h3>Projects</h3><p>Repos, side quests, and things that compile on a good day.</p></div>
     <div class="card"><div class="ico">⌨️</div><h3>Writing</h3><p>Notes on code, tooling, and lessons learned the hard way.</p></div>
-    <div class="card"><div class="ico">🕹️</div><h3><a href="asteroids/">Asteroids</a></h3><p>A little canvas game. Arrow keys, space to shoot, no install.</p></div>
+    <div class="card"><div class="ico">🖥️</div><h3>Setup</h3><p>Editor, terminal, dotfiles, and the keyboard I'm too loud about.</p></div>
     <div class="card"><div class="ico">📡</div><h3>Contact</h3><p><a href="mailto:you@example.com">you@example.com</a> · <a href="#">GitHub</a></p></div>
   </div>
 
+  <h2>Repo layout</h2>
+<pre>demo/
+├── index.html          <span class="c">← this page</span>
+└── asteroids/
+    └── index.html      <span class="c">← the game</span></pre>
+
   <h2>Ship it in 4 steps</h2>
   <ol>
-    <li>Create a repo named <code>username.github.io</code> (your exact GitHub username).</li>
-    <li>Add this file as <code>index.html</code> in the root.</li>
+    <li>Push both files to your repo named <code>demo</code>.</li>
     <li>Settings → Pages → Source: <code>Deploy from a branch</code> → <code>main</code> / <code>/root</code>.</li>
-    <li>Wait ~1 min, then open <code>https://username.github.io</code>.</li>
+    <li>Wait ~1 min, then open <code>https://username.github.io/demo/</code>.</li>
+    <li>The game is at <code>https://username.github.io/demo/asteroids/</code>.</li>
   </ol>
 
   <h2>Or from the terminal</h2>
-<pre><span class="c"># start from a folder with index.html in it</span>
-<span class="k">git</span> init
-<span class="k">git</span> add index.html
-<span class="k">git</span> commit -m <span class="s">"first deploy"</span>
-<span class="k">git</span> branch -M main
-<span class="k">git</span> remote add origin <span class="s">https://github.com/username/username.github.io.git</span>
-<span class="k">git</span> push -u origin main
+<pre><span class="c"># from inside the demo folder</span>
+<span class="k">git</span> add .
+<span class="k">git</span> commit -m <span class="s">"add homepage + asteroids"</span>
+<span class="k">git</span> push
 
 <span class="c"># every future push redeploys automatically</span></pre>
 
   <p style="margin-top:1rem;color:var(--dim);font-size:.85rem">
-    Any repo works too — a repo named <code>blog</code> publishes at
-    <code>username.github.io/blog</code>. Just flip on Pages in its settings.
+    Because this is a project repo, every page sits under <code>/demo/</code>.
+    Keep links relative (<code>asteroids/</code>, not <code>/asteroids/</code>) and they'll work
+    both locally and once deployed.
   </p>
 
   <footer>Built with HTML, CSS, and zero build tools. Hosted free on GitHub Pages.</footer>
