@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My GitHub Pages Homepage</title>
+<style>
+  :root{
+    --bg:#0d1117; --panel:#161b22; --line:#30363d;
+    --text:#c9d1d9; --dim:#8b949e; --green:#3fb950;
+    --blue:#58a6ff; --pink:#ff7b72; --yellow:#d29922;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--bg);color:var(--text);
+    font-family:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+    line-height:1.6;padding:2rem 1rem;
+    background-image:linear-gradient(var(--panel) 1px,transparent 1px),
+                     linear-gradient(90deg,var(--panel) 1px,transparent 1px);
+    background-size:40px 40px;
+  }
+  .wrap{max-width:760px;margin:0 auto}
+
+  /* ---- terminal hero ---- */
+  .term{border:1px solid var(--line);border-radius:10px;overflow:hidden;
+        background:var(--panel);box-shadow:0 12px 40px rgba(0,0,0,.5)}
+  .bar{display:flex;gap:8px;align-items:center;padding:10px 14px;
+       background:#21262d;border-bottom:1px solid var(--line)}
+  .dot{width:12px;height:12px;border-radius:50%}
+  .r{background:#ff5f56}.y{background:#ffbd2e}.g{background:#27c93f}
+  .bar span{margin-left:auto;color:var(--dim);font-size:.8rem}
+  .body{padding:1.5rem}
+  .prompt{color:var(--green)}
+  .prompt::before{content:"$ ";color:var(--pink)}
+  h1{font-size:1.9rem;margin:.6rem 0;color:#fff}
+  .cursor{display:inline-block;width:10px;height:1.1rem;background:var(--green);
+          vertical-align:-2px;animation:blink 1s steps(1) infinite}
+  @keyframes blink{50%{opacity:0}}
+  .tag{color:var(--dim)}
+
+  /* ---- content ---- */
+  h2{margin:2rem 0 .8rem;font-size:1.1rem;color:var(--blue)}
+  h2::before{content:"// ";color:var(--dim)}
+  pre{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+      padding:1rem;overflow-x:auto;font-size:.85rem;color:var(--text)}
+  .c{color:var(--dim)}.k{color:var(--pink)}.s{color:var(--blue)}
+
+  .grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:8px;
+        padding:1rem;transition:.2s}
+  .card:hover{border-color:var(--blue);transform:translateY(-3px)}
+  .card h3{font-size:.95rem;color:#fff;margin-bottom:.3rem}
+  .card p{font-size:.85rem;color:var(--dim)}
+  .ico{font-size:1.5rem}
+
+  ol{margin-left:1.2rem}
+  ol li{margin:.4rem 0}
+  code{background:#21262d;padding:.1rem .4rem;border-radius:4px;color:var(--yellow)}
+  a{color:var(--blue)}
+
+  footer{margin-top:2.5rem;padding-top:1rem;border-top:1px solid var(--line);
+         color:var(--dim);font-size:.8rem;text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="term">
+    <div class="bar">
+      <i class="dot r"></i><i class="dot y"></i><i class="dot g"></i>
+      <span>~/username.github.io — zsh</span>
+    </div>
+    <div class="body">
+      <p class="prompt">whoami</p>
+      <h1>Your Name <span class="cursor"></span></h1>
+      <p class="tag">Developer · Builder · Perpetual tab-hoarder</p>
+      <p class="prompt" style="margin-top:1rem">cat about.txt</p>
+      <p>This page is a static HTML file living in a GitHub repo — free hosting, own URL, version controlled.</p>
+    </div>
+  </div>
+
+  <h2>What's on this machine</h2>
+  <div class="grid">
+    <div class="card"><div class="ico">💻</div><h3>Projects</h3><p>Repos, side quests, and things that compile on a good day.</p></div>
+    <div class="card"><div class="ico">⌨️</div><h3>Writing</h3><p>Notes on code, tooling, and lessons learned the hard way.</p></div>
+    <div class="card"><div class="ico">🕹️</div><h3><a href="asteroids.html">Asteroids</a></h3><p>A little canvas game. Arrow keys, space to shoot, no install.</p></div>
+    <div class="card"><div class="ico">📡</div><h3>Contact</h3><p><a href="mailto:you@example.com">you@example.com</a> · <a href="#">GitHub</a></p></div>
+  </div>
+
+  <h2>Ship it in 4 steps</h2>
+  <ol>
+    <li>Create a repo named <code>username.github.io</code> (your exact GitHub username).</li>
+    <li>Add this file as <code>index.html</code> in the root.</li>
+    <li>Settings → Pages → Source: <code>Deploy from a branch</code> → <code>main</code> / <code>/root</code>.</li>
+    <li>Wait ~1 min, then open <code>https://username.github.io</code>.</li>
+  </ol>
+
+  <h2>Or from the terminal</h2>
+<pre><span class="c"># start from a folder with index.html in it</span>
+<span class="k">git</span> init
+<span class="k">git</span> add index.html
+<span class="k">git</span> commit -m <span class="s">"first deploy"</span>
+<span class="k">git</span> branch -M main
+<span class="k">git</span> remote add origin <span class="s">https://github.com/username/username.github.io.git</span>
+<span class="k">git</span> push -u origin main
+
+<span class="c"># every future push redeploys automatically</span></pre>
+
+  <p style="margin-top:1rem;color:var(--dim);font-size:.85rem">
+    Any repo works too — a repo named <code>blog</code> publishes at
+    <code>username.github.io/blog</code>. Just flip on Pages in its settings.
+  </p>
+
+  <footer>Built with HTML, CSS, and zero build tools. Hosted free on GitHub Pages.</footer>
+</div>
+</body>
+</html>
